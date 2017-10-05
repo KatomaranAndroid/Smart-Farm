@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shgitemrel"
+    android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_toStartOf="@+id/imageView3"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:padding="15dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="#c0c0c0"
+            app:civ_border_width="1dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                android:id="@+id/plotname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Name of Relation"
+                android:textColor="@color/jaguar"
+                android:textSize="18dp"
+                app:font="MavenBold"/>
+
+            <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                android:id="@+id/areaofplot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Name of Person"
+                android:textColor="#FF727272"
+                app:font="maven"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewtag"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/linprofile"
+        android:layout_marginLeft="76dp"
+        android:background="#c0c0c0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="5dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_chevron_right_black_24dp"
+        android:tint="#FF727272" />
+
+</RelativeLayout>

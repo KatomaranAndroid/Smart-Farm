@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relexpand"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/list_item_genre_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:src="@drawable/coconutimg" />
+
+    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+        android:id="@+id/list_item_genre_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="70dp"
+        android:gravity="center|left"
+        app:font="MavenBold"
+        tools:text="Title" />
+
+    <ImageView
+        android:id="@+id/list_item_genre_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_arrow_down"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/viewtag"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/list_item_genre_icon"
+        android:layout_marginLeft="70dp"
+        android:background="#e4e3e3" />
+
+</RelativeLayout>

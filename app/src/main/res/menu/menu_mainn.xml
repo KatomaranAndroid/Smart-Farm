@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.vidhushig.menuitem.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="101"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_calendar"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_event_white_24dp"
+        android:title="Farmer calendar"
+        app:showAsAction="always" />
+</menu>

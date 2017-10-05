@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF1A9185</color>
+    <color name="white_alpha">#F2FFFFFF</color>
+    <color name="soft_grey">#ECEEEF</color>
+    <color name="grey500">#9E9E9E</color>
+    <color name="black">#000000</color>
+    <color name="mt_gray">#eeeeee</color>
+    <color name="mt_gray3">#77777D</color>
+    <color name="mt_gray4">#8E959E</color>
+    <color name="colortint">#FF1A9185</color>
+    <color name="light">#DDDDDD</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="grey">#BDBDBD</color>
+    <color name="textcolouehint">#c6c6c6</color>
+    <color name="table_header_text">#CCFFFFFF</color>
+    <color name="table_data_row_even">#11C5CAE9</color>
+    <color name="table_data_row_odd">#33C5CAE9</color>
+    <color name="table_price_low">#FF2E7D32</color>
+    <color name="table_price_high">#FFC62828</color>
+
+    <color name="primaryDark">#FF283593</color>
+    <color name="primary">#FF3F51B5</color>
+
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
+
+    <color name="jaguar">#232237</color>
+    <color name="colorWhite">#fff</color>
+    <color name="color_1">#EF9A9A</color>
+    <color name="color_2">#E53935</color>
+    <color name="color_3">#F8BBD0</color>
+    <color name="color_4">#D81B60</color>
+    <color name="color_5">#880E4F</color>
+    <color name="color_6">#CE93D8</color>
+    <color name="color_7">#8E24AA</color>
+    <color name="color_8">#4A148C</color>
+    <color name="color_9">#B39DDB</color>
+    <color name="color_10">#673AB7</color>
+    <color name="color_11">#311B92</color>
+    <color name="color_12">#3D5AFE</color>
+    <color name="color_13">#29B6F6</color>
+    <color name="color_14">#26C6DA</color>
+    <color name="color_15">#26A69A</color>
+    <color name="color_16">#4CAF50</color>
+    <color name="color_17">#8BC34A</color>
+    <color name="color_18">#CDDC39</color>
+    <color name="color_19">#FFEB3B</color>
+    <color name="color_20">#FFC107</color>
+    <color name="color_21">#FF9800</color>
+    <color name="color_22">#FF5722</color>
+    <color name="color_23">#795548</color>
+    <color name="color_24">#9E9E9E</color>
+    <color name="color_25">#607D8B</color>
+    <color name="color_26">#000000</color>
+    <color name="grayIconTint">#727272</color>
+
+    <color name="shopAccent">#84ceca</color>
+    <color name="shopSecondary">#727272</color>
+    <color name="shopRatedStar">#ffeb5a</color>
+    <color name="shopFabRipple">#51b2ac</color>
+
+    <color name="galleryBg">#212121</color>
+    <color name="galleryCurrentItemOverlay">@android:color/transparent</color>
+    <color name="galleryItemOverlay">#cc000000</color>
+    <color name="galleryEdgeEffect">#b4ffffff</color>
+    <color name="galleryAccent">#FFC107</color>
+
+    <color name="grey_300">#e0e0e0</color>
+    <color name="farmr_teal_500">#2fc3c1</color>
+    <color name="app_dark_100">#000000</color>
+    <color name="medium_green_800">#8e948f</color>
+    <color name="green">@color/green_500</color>
+    <color name="green_500">#00cd6f</color>
+
+    <color name="medium_green_900">#626763</color>
+    <color name="iconcolour">#FF5722</color>
+
+    <color name="colorTextWhite">#000</color>
+
+    <!--<color name="colorTable1">#8e44ad</color>-->
+    <!--<color name="colorTable2">#2ecc71</color>-->
+    <color name="charcoal">#fff</color>
+    <color name="medium_jungle_green">#e2dfdf</color>
+
+</resources>

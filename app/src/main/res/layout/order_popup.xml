@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="left|center"
+        android:orientation="horizontal">
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/itemtittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            android:text="Select Quantity"
+            android:textAllCaps="false"
+            android:textColor="@color/jaguar"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/itemclose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:src="@drawable/ic_close_black_24dp"
+            android:tint="@color/jaguar" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:src="@drawable/ic_equalizer_black_24dp" />
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/quantxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.1"
+            android:background="@android:color/transparent"
+            android:text="Select your quantity (#)"
+            android:inputType="textCapWords"
+            android:textColor="@color/jaguar"
+            android:textSize="15dp"
+            app:font="maven" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <com.andanhm.quantitypicker.QuantityPicker
+            android:id="@+id/quantityPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:buttonColor="@color/colorAccent"
+            app:maxQuantity="5"
+            app:minQuantity="1"
+            app:quantityColor="@color/colorPrimary"
+            app:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:src="@drawable/ic_attach_money_black_24dp" />
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/costtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.1"
+            android:background="@android:color/transparent"
+            android:hint="Total cost"
+            android:inputType="textCapWords"
+            android:textColor="@color/jaguar"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+        android:id="@+id/r_submittxt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        app:font="maven" />
+
+
+</LinearLayout>

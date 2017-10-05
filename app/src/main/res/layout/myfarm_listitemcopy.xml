@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:paddingBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:clickable="true">
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/cropname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:maxLength="24"
+            android:text="Coconut crop"
+            android:textColor="@color/jaguar"
+            android:textSize="18dp"
+            app:font="MavenBold" />
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/dateofharvest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/croplin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:maxLength="24"
+            android:text="12/12/2017"
+            android:textColor="@color/jaguar"
+            android:textSize="13dp"
+            app:font="maven" />
+
+        <LinearLayout
+            android:id="@+id/croplin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cropname"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cropimg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/coconutimg" />
+
+
+                <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Posted"
+                    android:textColor="@color/accent"
+                    app:font="maven" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/croprel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cardView"
+                android:layout_gravity="center"
+                android:layout_toEndOf="@+id/cardView"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/xgradelin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="MavenBold" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/agradetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="A"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/bgradetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="B"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/cgradetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="C"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/agradelin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/xgradelin"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/qty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Qty (Kg)"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="MavenBold" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/aqty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/bqty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/cqty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bgradelin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/agradelin"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toStartOf="@+id/linearLayout"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Price (₹)"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="MavenBold" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/aprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/bprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                        android:id="@+id/cprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12K grams"
+                        android:textColor="@color/jaguar"
+                        android:textSize="13dp"
+                        app:font="maven" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/croplin"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="VIEW"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/croplin"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    app:srcCompat="@drawable/ic_ac_unit_black_24dp" />
+
+                <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                    android:id="@+id/shortnos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="0."
+                    android:text="18"
+                    android:textColor="@color/jaguar"
+                    android:textStyle="normal|bold"
+                    app:font="MavenBold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    app:srcCompat="@drawable/ic_adjust_black_24dp" />
+
+                <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                    android:id="@+id/mixednos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:text="18"
+                    android:textColor="@color/jaguar"
+                    android:textStyle="normal|bold"
+                    app:font="MavenBold" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

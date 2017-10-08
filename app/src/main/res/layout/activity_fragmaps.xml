@@ -150,8 +150,9 @@
             app:backgroundTint="@color/white"
             app:elevation="2dp"
             app:fabSize="normal"
+            android:tag="plus"
             app:rippleColor="@color/soft_grey"
-            app:srcCompat="@drawable/ic_done_black_24dp"
+            app:srcCompat="@drawable/ic_add_black_24dp"
             tools:background="@color/white" />
     </LinearLayout>
 </FrameLayout>

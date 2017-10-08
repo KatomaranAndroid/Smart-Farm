@@ -34,6 +34,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class PlotActivity extends Fragment implements IPickResult {
 
     ArrayList<String> myImage = new ArrayList<>();
+    ArrayList<String> soiltestImage = new ArrayList<>();
     ArrayList<String> myResult = new ArrayList<>();
     ArrayList<String> irriSystem = new ArrayList<>();
     ArrayList<String> irriSource = new ArrayList<>();
@@ -188,7 +189,9 @@ public class PlotActivity extends Fragment implements IPickResult {
 
     public void showSoilDialog() {
         myImage = new ArrayList<>();
-        myImage.add("http://www.pixempire.com/images/preview/add-symbol-icon.jpg");
+        myImage.add("sc");
+        soiltestImage=new ArrayList<>();
+        soiltestImage.add("gh");
         myResult = new ArrayList<>();
         myResult.add("Click here to Add results");
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
@@ -223,6 +226,32 @@ public class PlotActivity extends Fragment implements IPickResult {
                         public void onPickResult(PickResult pickResult) {
                             myImage.add(pickResult.getUri().toString());
                             firstAdapter.notifyData(myImage);
+                        }
+                    })
+                            .show(getActivity());
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+        final HorizontalAdapter soilAdapter = new HorizontalAdapter(getActivity(), soiltestImage);
+        final MultiSnapRecyclerView soiltestlist = (MultiSnapRecyclerView) dialogView.findViewById(R.id.soiltestlist);
+        final LinearLayoutManager soilManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        soiltestlist.setLayoutManager(soilManager);
+        soiltestlist.setAdapter(soilAdapter);
+        soiltestlist.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), soiltestlist, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                if (position == 0) {
+                    PickSetup setup = new PickSetup();
+                    PickImageDialog.build(setup).setOnPickResult(new IPickResult() {
+                        @Override
+                        public void onPickResult(PickResult pickResult) {
+                            soiltestImage.add(pickResult.getUri().toString());
+                            soilAdapter.notifyData(myImage);
                         }
                     })
                             .show(getActivity());
@@ -299,8 +328,8 @@ public class PlotActivity extends Fragment implements IPickResult {
     public void showLandDialog() {
         irriSource = new ArrayList<>();
         irriSystem = new ArrayList<>();
-        irriSystem.add("http://www.pixempire.com/images/preview/add-symbol-icon.jpg");
-        irriSource.add("http://www.pixempire.com/images/preview/add-symbol-icon.jpg");
+        irriSystem.add("htt");
+        irriSource.add("http");
         Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/maven.ttf");
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();

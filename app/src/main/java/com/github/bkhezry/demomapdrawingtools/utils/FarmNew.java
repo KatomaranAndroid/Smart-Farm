@@ -9,12 +9,15 @@ public class FarmNew {
     String proid;
     String qty;
     String cropname;
+    String allqty;
+    String allprice;
     String aqty;
     String aprice;
     String bqty;
     String bprice;
     String cqty;
     String cprice;
+    String allcost;
     String acost;
     String bcost;
     String ccost;
@@ -24,17 +27,20 @@ public class FarmNew {
     String date;
 
 
-    public FarmNew(String farmeid,String proid, String qty, String cropname, String aqty, String aprice, String bqty, String bprice, String cqty, String cprice, String acost, String bcost, String ccost, String shorttrees, String mixedtrees, String img, String date) {
+    public FarmNew(String farmeid, String proid, String qty, String cropname, String allqty, String allprice, String aqty, String aprice, String bqty, String bprice, String cqty, String cprice, String allcost, String acost, String bcost, String ccost, String shorttrees, String mixedtrees, String img, String date) {
         this.farmeid = farmeid;
-        this.proid=proid;
-        this.qty=qty;
+        this.proid = proid;
+        this.qty = qty;
         this.cropname = cropname;
+        this.allqty = allqty;
+        this.allprice = allprice;
         this.aqty = aqty;
         this.aprice = aprice;
         this.bqty = bqty;
         this.bprice = bprice;
         this.cqty = cqty;
         this.cprice = cprice;
+        this.allcost = allcost;
         this.acost = acost;
         this.bcost = bcost;
         this.ccost = ccost;
@@ -44,6 +50,29 @@ public class FarmNew {
         this.date = date;
     }
 
+    public String getAllqty() {
+        return allqty;
+    }
+
+    public void setAllqty(String allqty) {
+        this.allqty = allqty;
+    }
+
+    public String getAllprice() {
+        return allprice;
+    }
+
+    public void setAllprice(String allprice) {
+        this.allprice = allprice;
+    }
+
+    public String getAllcost() {
+        return allcost;
+    }
+
+    public void setAllcost(String allcost) {
+        this.allcost = allcost;
+    }
 
     public String getQty() {
         return qty;

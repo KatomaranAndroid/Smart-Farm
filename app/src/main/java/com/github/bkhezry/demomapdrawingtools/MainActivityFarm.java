@@ -33,12 +33,10 @@ import com.github.bkhezry.demomapdrawingtools.customdialogs.models.ContactModel;
 import com.github.bkhezry.demomapdrawingtools.dp.DbFarmer;
 import com.github.bkhezry.demomapdrawingtools.dp.DbPro;
 import com.github.bkhezry.demomapdrawingtools.utils.FarmNew;
+import com.github.bkhezry.demomapdrawingtools.utils.Farmer;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +52,18 @@ public class MainActivityFarm extends AppCompatActivity {
     private ArrayList<FarmNew> userList = new ArrayList<>();
     private RecyclerView recyclerView;
     private FarmNewAdapter mAdapter;
-    private LinearLayout submitlin;
     private String imgurl;
     private String qtyttext;
     int aQty = 0;
+    int allQty = 0;
     int bQty = 0;
     int cQty = 0;
+
+    int aPrice = 0;
+    int allPrice = 0;
+    int bPrice = 0;
+    int cPrice = 0;
+
     public static String noOfTrees = "";
     public static String typeCrop = "";
     public static String yiled = "";
@@ -72,6 +76,7 @@ public class MainActivityFarm extends AppCompatActivity {
     public static final String farmerid = "farmeridKey";
     public static final String update = "updateKey";
     String farmerId = "";
+    private LinearLayout emptylayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,14 +94,14 @@ public class MainActivityFarm extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'> My Crop </font>"));
 
-        submitlin = (LinearLayout) findViewById(R.id.r_submitlin);
-        TextView submittxt = (TextView) findViewById(R.id.r_submittxt);
-        submitlin.setOnClickListener(new View.OnClickListener() {
+        emptylayout = (LinearLayout) findViewById(R.id.emptylayout);
+        emptylayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showFarmDialog(false, "", -1);
             }
         });
+        TextView submittxt = (TextView) findViewById(R.id.r_submittxt);
         submittxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,6 +145,13 @@ public class MainActivityFarm extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
+        if (userList.size() > 0) {
+            emptylayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        } else {
+            emptylayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
         mAdapter.notifyData(userList);
     }
 
@@ -153,12 +165,15 @@ public class MainActivityFarm extends AppCompatActivity {
         final CustomFontTextView subtxt = (CustomFontTextView) dialogView.findViewById(R.id.r_submittxt);
         final CustomFontTextView cropname = (CustomFontTextView) dialogView.findViewById(R.id.cropname);
         final CustomFontTextView date = (CustomFontTextView) dialogView.findViewById(R.id.dateofharvest);
+        final EditText allgradetxt = (EditText) dialogView.findViewById(R.id.allgradetxt);
         final EditText agradetxt = (EditText) dialogView.findViewById(R.id.agradetxt);
         final EditText bgradetxt = (EditText) dialogView.findViewById(R.id.bgradetxt);
         final EditText cgradetxt = (EditText) dialogView.findViewById(R.id.cgradetxt);
+        final EditText allqty = (EditText) dialogView.findViewById(R.id.allqty);
         final EditText aqty = (EditText) dialogView.findViewById(R.id.aqty);
         final EditText bqty = (EditText) dialogView.findViewById(R.id.bqty);
         final EditText cqty = (EditText) dialogView.findViewById(R.id.cqty);
+        final EditText allprice = (EditText) dialogView.findViewById(R.id.allprice);
         final EditText aprice = (EditText) dialogView.findViewById(R.id.aprice);
         final EditText bprice = (EditText) dialogView.findViewById(R.id.bprice);
         final EditText cprice = (EditText) dialogView.findViewById(R.id.cprice);
@@ -190,6 +205,34 @@ public class MainActivityFarm extends AppCompatActivity {
                 b.cancel();
             }
 
+        });
+
+
+        allgradetxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int lenAfter) {
+                String c = String.valueOf(charSequence);
+                if ((i == 0 && lenAfter == 1) || (!c.equals(" ") && i > 0)) {
+                    if (charSequence.toString().length() > 0 && allqty.getText().toString().length() > 0) {
+                        allgradetxt.setText(charSequence.toString());
+                        allprice.setText(
+                                String.valueOf(Integer.parseInt(allgradetxt.getText().toString())
+                                        * Integer.parseInt(allqty.getText().toString().replace(",", ""))));
+                    }
+                } else if (i == 0 && lenAfter == 0) {
+                    allprice.setText("");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
         });
 
         agradetxt.addTextChangedListener(new TextWatcher() {
@@ -275,6 +318,60 @@ public class MainActivityFarm extends AppCompatActivity {
             }
         });
 
+
+        allqty.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int lenAfter) {
+                String c = String.valueOf(charSequence);
+                if ((i == 0 && lenAfter == 1) || (!c.equals(" ") && i > 0)) {
+                    if (charSequence.toString().length() > 0 && allgradetxt.getText().toString().length() > 0) {
+                        allprice.setText(
+                                String.valueOf(Integer.parseInt(allgradetxt.getText().toString())
+                                        * Integer.parseInt(charSequence.toString().replace(",", ""))));
+                    }
+                    if (allqty.getText().toString().length() > 0) {
+                        allQty = Integer.parseInt(allqty.getText().toString().replace(",", ""));
+                    }
+                    if (aqty.getText().toString().length() > 0) {
+                        aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
+                    }
+                    if (bqty.getText().toString().length() > 0) {
+                        bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
+                    }
+                    if (cqty.getText().toString().length() > 0) {
+                        cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
+                    }
+                    if (allprice.getText().toString().length() > 0) {
+                        allPrice = Integer.parseInt(allprice.getText().toString().replace(",", ""));
+                    }
+                    if (aprice.getText().toString().length() > 0) {
+                        aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
+                    }
+                    if (bprice.getText().toString().length() > 0) {
+                        bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
+                    }
+                    if (cprice.getText().toString().length() > 0) {
+                        cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
+                    }
+                    shortnos.setText(String.valueOf((allQty + aQty + bQty + cQty)));
+                    mixednos.setText(String.valueOf((allPrice + aPrice + bPrice + cPrice)));
+
+                } else if (i == 0 && lenAfter == 0) {
+                    allprice.setText("");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         aqty.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -290,21 +387,35 @@ public class MainActivityFarm extends AppCompatActivity {
                                 String.valueOf(Integer.parseInt(agradetxt.getText().toString())
                                         * Integer.parseInt(charSequence.toString().replace(",", ""))));
                     }
-                    if (charSequence.toString().length() > 0 && bqty.getText().toString().length() > 0
-                            && cqty.getText().toString().length() > 0) {
-                        aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
-                        bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
-                        cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
-                        int aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
-                        int bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
-                        int cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
-                        shortnos.setText(String.valueOf((aQty + bQty + cQty)));
-                        mixednos.setText(String.valueOf((aPrice + bPrice + cPrice)));
+                    if (allqty.getText().toString().length() > 0) {
+                        allQty = Integer.parseInt(allqty.getText().toString().replace(",", ""));
                     }
+                    if (aqty.getText().toString().length() > 0) {
+                        aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
+                    }
+                    if (bqty.getText().toString().length() > 0) {
+                        bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
+                    }
+                    if (cqty.getText().toString().length() > 0) {
+                        cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
+                    }
+                    if (allprice.getText().toString().length() > 0) {
+                        allPrice = Integer.parseInt(allprice.getText().toString().replace(",", ""));
+                    }
+                    if (aprice.getText().toString().length() > 0) {
+                        aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
+                    }
+                    if (bprice.getText().toString().length() > 0) {
+                        bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
+                    }
+                    if (cprice.getText().toString().length() > 0) {
+                        cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
+                    }
+                    shortnos.setText(String.valueOf((allQty + aQty + bQty + cQty)));
+                    mixednos.setText(String.valueOf((allPrice + aPrice + bPrice + cPrice)));
+
                 } else if (i == 0 && lenAfter == 0) {
                     aprice.setText("");
-                    shortnos.setText("");
-                    mixednos.setText("");
                 }
             }
 
@@ -330,21 +441,35 @@ public class MainActivityFarm extends AppCompatActivity {
                                 String.valueOf(Integer.parseInt(bgradetxt.getText().toString())
                                         * Integer.parseInt(charSequence.toString().replace(",", ""))));
                     }
-                    if (charSequence.toString().length() > 0 && aqty.getText().toString().length() > 0
-                            && cqty.getText().toString().length() > 0) {
-                        aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
-                        bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
-                        cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
-                        int aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
-                        int bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
-                        int cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
-                        shortnos.setText(String.valueOf((aQty + bQty + cQty)));
-                        mixednos.setText(String.valueOf((aPrice + bPrice + cPrice)));
+                    if (allqty.getText().toString().length() > 0) {
+                        allQty = Integer.parseInt(allqty.getText().toString().replace(",", ""));
                     }
+                    if (aqty.getText().toString().length() > 0) {
+                        aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
+                    }
+                    if (bqty.getText().toString().length() > 0) {
+                        bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
+                    }
+                    if (cqty.getText().toString().length() > 0) {
+                        cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
+                    }
+                    if (allprice.getText().toString().length() > 0) {
+                        allPrice = Integer.parseInt(allprice.getText().toString().replace(",", ""));
+                    }
+                    if (aprice.getText().toString().length() > 0) {
+                        aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
+                    }
+                    if (bprice.getText().toString().length() > 0) {
+                        bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
+                    }
+                    if (cprice.getText().toString().length() > 0) {
+                        cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
+                    }
+                    shortnos.setText(String.valueOf((allQty + aQty + bQty + cQty)));
+                    mixednos.setText(String.valueOf((allPrice + aPrice + bPrice + cPrice)));
+
                 } else if (i == 0 && lenAfter == 0) {
                     bprice.setText("");
-                    shortnos.setText("");
-                    mixednos.setText("");
                 }
             }
 
@@ -371,21 +496,35 @@ public class MainActivityFarm extends AppCompatActivity {
                                                                     String.valueOf(Integer.parseInt(cgradetxt.getText().toString())
                                                                             * Integer.parseInt(charSequence.toString().replace(",", ""))));
                                                         }
-                                                        if (charSequence.toString().length() > 0 && aqty.getText().toString().length() > 0
-                                                                && bqty.getText().toString().length() > 0) {
-                                                            aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
-                                                            bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
-                                                            cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
-                                                            int aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
-                                                            int bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
-                                                            int cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
-                                                            shortnos.setText(String.valueOf((aQty + bQty + cQty)));
-                                                            mixednos.setText(String.valueOf((aPrice + bPrice + cPrice)));
+                                                        if (allqty.getText().toString().length() > 0) {
+                                                            allQty = Integer.parseInt(allqty.getText().toString().replace(",", ""));
                                                         }
+                                                        if (aqty.getText().toString().length() > 0) {
+                                                            aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (bqty.getText().toString().length() > 0) {
+                                                            bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (cqty.getText().toString().length() > 0) {
+                                                            cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (allprice.getText().toString().length() > 0) {
+                                                            allPrice = Integer.parseInt(allprice.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (aprice.getText().toString().length() > 0) {
+                                                            aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (bprice.getText().toString().length() > 0) {
+                                                            bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
+                                                        }
+                                                        if (cprice.getText().toString().length() > 0) {
+                                                            cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
+                                                        }
+                                                        shortnos.setText(String.valueOf((allQty + aQty + bQty + cQty)));
+                                                        mixednos.setText(String.valueOf((allPrice + aPrice + bPrice + cPrice)));
+
                                                     } else if (i == 0 && lenAfter == 0) {
                                                         cprice.setText("");
-                                                        shortnos.setText("");
-                                                        mixednos.setText("");
                                                     }
                                                 }
 
@@ -485,39 +624,89 @@ public class MainActivityFarm extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
+
+                if (allqty.getText().toString().length() > 0) {
+                    allQty = Integer.parseInt(allqty.getText().toString().replace(",", ""));
+                }
+                if (aqty.getText().toString().length() > 0) {
+                    aQty = Integer.parseInt(aqty.getText().toString().replace(",", ""));
+                }
+                if (bqty.getText().toString().length() > 0) {
+                    bQty = Integer.parseInt(bqty.getText().toString().replace(",", ""));
+                }
+                if (cqty.getText().toString().length() > 0) {
+                    cQty = Integer.parseInt(cqty.getText().toString().replace(",", ""));
+                }
+                if (allprice.getText().toString().length() > 0) {
+                    allPrice = Integer.parseInt(allprice.getText().toString().replace(",", ""));
+                }
+                if (aprice.getText().toString().length() > 0) {
+                    aPrice = Integer.parseInt(aprice.getText().toString().replace(",", ""));
+                }
+                if (bprice.getText().toString().length() > 0) {
+                    bPrice = Integer.parseInt(bprice.getText().toString().replace(",", ""));
+                }
+                if (cprice.getText().toString().length() > 0) {
+                    cPrice = Integer.parseInt(cprice.getText().toString().replace(",", ""));
+                }
+                shortnos.setText(String.valueOf((allQty + aQty + bQty + cQty)));
+                mixednos.setText(String.valueOf((allPrice + aPrice + bPrice + cPrice)));
+
+                if (agradetxt.getText().toString().length() <= 0) {
+                    agradetxt.setText("0");
+                }
+                if (aprice.getText().toString().length() <= 0) {
+                    aprice.setText("0");
+                }
+                if (aqty.getText().toString().length() <= 0) {
+                    aqty.setText("0");
+                }
+                if (bgradetxt.getText().toString().length() <= 0) {
+                    bgradetxt.setText("0");
+                }
+                if (bprice.getText().toString().length() <= 0) {
+                    bprice.setText("0");
+                }
+                if (bqty.getText().toString().length() <= 0) {
+                    bqty.setText("0");
+                }
+                if (cgradetxt.getText().toString().length() <= 0) {
+                    cgradetxt.setText("0");
+                }
+                if (cprice.getText().toString().length() <= 0) {
+                    cprice.setText("0");
+                }
+                if (cqty.getText().toString().length() <= 0) {
+                    cqty.setText("0");
+                }
                 if (cropname.getText().toString().length() <= 0 ||
                         date.getText().toString().length() <= 0 ||
-                        aqty.getText().toString().length() <= 0 ||
-                        bqty.getText().toString().length() <= 0 ||
-                        cqty.getText().toString().length() <= 0 ||
-                        aprice.getText().toString().length() <= 0 ||
-                        bprice.getText().toString().length() <= 0 ||
-                        cprice.getText().toString().length() <= 0 ||
-                        agradetxt.getText().toString().length() <= 0 ||
-                        bgradetxt.getText().toString().length() <= 0 ||
-                        cgradetxt.getText().toString().length() <= 0 ||
+                        allqty.getText().toString().length() <= 0 ||
+                        allprice.getText().toString().length() <= 0 ||
+                        allgradetxt.getText().toString().length() <= 0 ||
                         shortnos.getText().toString().length() <= 0 ||
                         mixednos.getText().toString().length() <= 0) {
                     Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     String proid = "";
-                    try {
-                       JSONObject jsonObject = new JSONObject(dbFarmer.getDataByFarmerid(farmerId).get(1));
-                        if (dbpro.getCountByFarmerid(jsonObject.get("pincode") + "pro_1") == 0) {
-                            proid = jsonObject.get("pincode") + "pro_1";
-                        } else {
-                            proid = jsonObject.get("pincode") + "pro_" + String.valueOf(dbpro.getAllData().size() + 1);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    JsonParser parser = new JsonParser();
+                    JsonObject o = parser.parse(dbFarmer.getDataByFarmerid(farmerId).get(1)).getAsJsonObject();
+                    Farmer farmer = new Gson().fromJson(o, Farmer.class);
+                    if (dbpro.getCountByFarmerid(farmer.getPincode() + "pro_1") == 0) {
+                        proid = farmer.getPincode() + "pro_1";
+                    } else {
+                        proid = farmer.getPincode() + "pro_" + String.valueOf(dbpro.getAllData().size() + 1);
                     }
                     FarmNew farm = new FarmNew(farmerId, proid, qtyttext, cropname.getText().toString(),
+                            allqty.getText().toString(),
+                            allprice.getText().toString(),
                             aqty.getText().toString(),
                             aprice.getText().toString(),
                             bqty.getText().toString(),
                             bprice.getText().toString(),
                             cqty.getText().toString(),
                             cprice.getText().toString(),
+                            allgradetxt.getText().toString(),
                             agradetxt.getText().toString(),
                             bgradetxt.getText().toString(),
                             cgradetxt.getText().toString(),
@@ -527,9 +716,8 @@ public class MainActivityFarm extends AppCompatActivity {
 
                     Log.e("xxxxxxxxxxxx", new Gson().toJson(farm));
                     dbpro.addData(proid, new Gson().toJson(farm));
-                    userList.add(farm);
-                    mAdapter.notifyData(userList);
                     b.cancel();
+                    prepareData();
                 }
             }
         });
@@ -574,25 +762,19 @@ public class MainActivityFarm extends AppCompatActivity {
                 startActivityForResult(ioo, 1);
                 return true;
             case R.id.account:
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(update, "true");
-                editor.commit();
-                Intent account = new Intent(MainActivityFarm.this, FarmerRegistration.class);
+                Intent account = new Intent(MainActivityFarm.this, ProfileActivity.class);
                 startActivity(account);
-                finish();
                 return true;
             case R.id.plot:
-                FarmNew farmNew = userList.get(0);
-                if (farmNew != null) {
-                    typeCrop = farmNew.getCropname().replace(",", "");
-                    noOfTrees = "5";
-                    yiled = farmNew.getShorttrees().replace("#", "").replace(",", "");
-                    value = farmNew.getMixedtrees().replace("₹", "").replace(",", "");
-                    Intent intent = new Intent(MainActivityFarm.this, MapsFragActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Atleast one product", Toast.LENGTH_SHORT).show();
-                }
+                JsonParser parser = new JsonParser();
+                JsonObject o = parser.parse(dbFarmer.getDataByFarmerid(farmerId).get(1)).getAsJsonObject();
+                Farmer farmer = new Gson().fromJson(o, Farmer.class);
+                typeCrop = farmer.getName();
+                noOfTrees = farmer.getCoconuttrees();
+                yiled = farmer.getYield();
+                value = "Unknown";
+                Intent intent = new Intent(MainActivityFarm.this, MapsFragActivity.class);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -606,4 +788,6 @@ public class MainActivityFarm extends AppCompatActivity {
             prepareData();
         }
     }
+
+
 }

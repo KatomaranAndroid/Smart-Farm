@@ -19,7 +19,10 @@
 
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />]
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+
 
     <application
         android:name=".SampleApplication"
@@ -51,11 +54,11 @@
         <!--android:theme="@style/AppTheme" >-->
 
         <!--<activity-->
-            <!--android:name=".FarmerRegistration"-->
-            <!--android:theme="@style/AppThemecomm">-->
+        <!--android:name=".FarmerRegistration"-->
+        <!--android:theme="@style/AppThemecomm">-->
         <activity
             android:name=".FirstLogin"
-            android:theme="@style/AppThemeD" >
+            android:theme="@style/AppThemeD">
 
 
             <intent-filter>
@@ -69,10 +72,16 @@
             android:name=".MainActivityFarm"
             android:theme="@style/AppThemecomm" />
         <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/AppThemeProfile" />
+        <activity
             android:name=".buy.MainActivityCattle"
             android:theme="@style/AppThemee" />
         <activity
             android:name=".FarmerRegistration"
+            android:theme="@style/AppThemeD" />
+        <activity
+            android:name=".PasswordActivity"
             android:theme="@style/AppThemeD" />
         <activity
             android:name=".ui.MainActivity"
@@ -88,6 +97,8 @@
             android:name=".services.ServicesActivity"
             android:theme="@style/AppThemee"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity android:name="katomaran.evao.lib.qrmodule.activity.QrScannerActivity" />
 
         <activity
             android:name=".cal.ui.SampleActivity"

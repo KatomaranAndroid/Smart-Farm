@@ -40,7 +40,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Vi
                 .centerCrop()
                 .dontAnimate()
                 .thumbnail(0.5f)
-                .placeholder(R.drawable.addicon)
+                .placeholder(R.drawable.ic_add_a_photo_black_24dp)
                 .into(holder.title);
     }
 

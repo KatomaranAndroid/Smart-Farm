@@ -72,7 +72,7 @@
             android:layout_gravity="center"
             android:layout_weight="1.75"
             android:padding="@dimen/paddingimg"
-            android:src="@drawable/ic_phone_black_24dp"
+            android:src="@drawable/ic_lock_black_24dp"
             android:tint="@color/colortint" />
 
         <android.support.design.widget.TextInputLayout
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorAccent"
-                android:hint="Contact"
+                android:hint="Password"
                 android:inputType="textCapWords"
                 android:textColorHint="#c6c6c6"
                 android:textSize="@dimen/textsize"
@@ -120,9 +120,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/passwordlin"
         android:layout_marginTop="74dp"
-        android:background="@color/white"
         android:gravity="center"
-        android:text="Add Farmer"
+        android:text="Register new Farmer"
         android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         app:font="maven" />

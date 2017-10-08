@@ -85,7 +85,7 @@
                 android:layout_alignLeft="@+id/linprofile"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="5dp"
-               android:background="#c0c0c0" />
+                android:background="#c0c0c0" />
 
 
             <RelativeLayout
@@ -193,6 +193,42 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignLeft="@+id/linprofile"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="5dp"
+                android:background="#c0c0c0" />
+
+            <LinearLayout
+                android:id="@+id/soiltestimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="vertical">
+
+
+                <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Soil test Images"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:font="MavenBold" />
+
+
+                <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+                    android:id="@+id/soiltestlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    app:msrv_gravity="start"
+                    app:msrv_snap_count="1" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

@@ -5,6 +5,8 @@
     <string name="draw_polygon">Draw Polygon</string>
     <string name="draw_polyline">Draw Polyline</string>
     <string name="draw_points">Draw Points</string>
+    <string name="user_name">User Name</string>
+    <string name="permission_text">Autocomplete email address.</string>
     <string name="license_title">License</string>
     <string name="libraries_title">Libraries &amp; Resources</string>
     <string name="developer_info_title">Developer Info</string>

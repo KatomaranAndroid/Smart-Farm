@@ -11,8 +11,10 @@
       <module fileurl="file://$PROJECT_DIR$/library-calendar/library-calendar.iml" filepath="$PROJECT_DIR$/library-calendar/library-calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-circle/library-circle.iml" filepath="$PROJECT_DIR$/library-circle/library-circle.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-front/library-front.iml" filepath="$PROJECT_DIR$/library-front/library-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-gmail/library-gmail.iml" filepath="$PROJECT_DIR$/library-gmail/library-gmail.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-search/library-search.iml" filepath="$PROJECT_DIR$/library-search/library-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/multisnaprecyclerview/multisnaprecyclerview.iml" filepath="$PROJECT_DIR$/multisnaprecyclerview/multisnaprecyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qrmodule/qrmodule.iml" filepath="$PROJECT_DIR$/qrmodule/qrmodule.iml" />
     </modules>
   </component>
 </project>

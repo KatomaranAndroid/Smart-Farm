@@ -10,8 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.data;
-
 
 public class DbFarmer extends SQLiteOpenHelper {
 
@@ -28,6 +26,7 @@ public class DbFarmer extends SQLiteOpenHelper {
     // Contacts Table Columns names
     private static final String KEY_FARMERID = "farmerid";
     private static final String KEY_DATA = "data";
+    private static final String KEY_PASSWORD = "password";
 
     public DbFarmer(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +37,8 @@ public class DbFarmer extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_FARMERID + " TEXT,"
-                + KEY_DATA + " TEXT" + ")";
+                + KEY_DATA + " TEXT,"
+                + KEY_PASSWORD + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -63,6 +63,7 @@ public class DbFarmer extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_FARMERID, farmerid); // ShgName Name
         values.put(KEY_DATA, data); // ShgName Phone
+        values.put(KEY_PASSWORD, ""); // ShgName Phone
 
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
@@ -72,7 +73,7 @@ public class DbFarmer extends SQLiteOpenHelper {
     // Getting single contact
     public ArrayList<String> getDataByFarmerid(String farmerid) {
 
-        Log.d("xxxxxxxx",farmerid);
+        Log.d("xxxxxxxx", farmerid);
         SQLiteDatabase db = this.getReadableDatabase();
 
         final Cursor cursor = db.query(TABLE_CONTACTS, new String[]{KEY_FARMERID,
@@ -88,22 +89,6 @@ public class DbFarmer extends SQLiteOpenHelper {
         return null;
     }
 
-    // Getting single contact
-    public ArrayList<String> getDataByProid(String proid) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        final Cursor cursor = db.query(TABLE_CONTACTS, new String[]{KEY_FARMERID,
-                        KEY_DATA}, KEY_FARMERID + "=?",
-                new String[]{proid}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-            return new ArrayList<String>() {{
-                add(cursor.getString(0));
-                add(cursor.getString(1));
-            }};
-        }
-        return null;
-    }
 
     public List<ArrayList<String>> getAllData() {
         List<ArrayList<String>> dataList = new ArrayList<>();
@@ -112,21 +97,33 @@ public class DbFarmer extends SQLiteOpenHelper {
         final Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                dataList.add(new ArrayList<String>() {{
-                    add(cursor.getString(0));
-                    add(cursor.getString(1));
-                }});
+                ArrayList<String> list = new ArrayList<>();
+                list.add(cursor.getString(0));
+                list.add(cursor.getString(1));
+                if (cursor.getString(2) != null) {
+                    list.add(cursor.getString(2));
+                }
+                dataList.add(list);
             } while (cursor.moveToNext());
         }
         return dataList;
     }
 
     // Updating single shgName
-    public int updatedataByFarmerid(String farmerid) {
+    public int updatedataByFarmerid(String farmerid, String data) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_FARMERID, farmerid); // ShgName Name
         values.put(KEY_DATA, data); // ShgName Phone
+        // updating row
+        return db.update(TABLE_CONTACTS, values, KEY_FARMERID + " = ?",
+                new String[]{farmerid});
+    }
+
+    public int updatePassByFarmerid(String farmerid, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_PASSWORD, password); // ShgName Phone
         // updating row
         return db.update(TABLE_CONTACTS, values, KEY_FARMERID + " = ?",
                 new String[]{farmerid});

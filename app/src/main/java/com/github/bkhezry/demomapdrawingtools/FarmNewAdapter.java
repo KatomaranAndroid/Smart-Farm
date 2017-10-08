@@ -34,11 +34,16 @@ public class FarmNewAdapter extends RecyclerView.Adapter<FarmNewAdapter.MyViewHo
         private final CustomFontTextView shortcount;
         private final CustomFontTextView mixedcount;
         private final CustomFontTextView dateofharvest;
+        private final CustomFontTextView allqty;
+        private final CustomFontTextView allprice;
+        private final CustomFontTextView allgradetxt;
 
         public MyViewHolder(View view) {
             super(view);
             cropimg = (ImageView) view.findViewById(R.id.cropimg);
             cropname = (CustomFontTextView) view.findViewById(R.id.cropname);
+            allqty = (CustomFontTextView) view.findViewById(R.id.allqty);
+            allprice = (CustomFontTextView) view.findViewById(R.id.allprice);
             aqty = (CustomFontTextView) view.findViewById(R.id.aqty);
             aprice = (CustomFontTextView) view.findViewById(R.id.aprice);
             bqty = (CustomFontTextView) view.findViewById(R.id.bqty);
@@ -46,10 +51,11 @@ public class FarmNewAdapter extends RecyclerView.Adapter<FarmNewAdapter.MyViewHo
             cqty = (CustomFontTextView) view.findViewById(R.id.cqty);
             cprice = (CustomFontTextView) view.findViewById(R.id.cprice);
             qty = (CustomFontTextView) view.findViewById(R.id.qty);
+            allgradetxt = (CustomFontTextView) view.findViewById(R.id.allgradetxt);
             agradetxt = (CustomFontTextView) view.findViewById(R.id.agradetxt);
             bgradetxt = (CustomFontTextView) view.findViewById(R.id.bgradetxt);
             cgradetxt = (CustomFontTextView) view.findViewById(R.id.cgradetxt);
-           shortcount = (CustomFontTextView) view.findViewById(R.id.shortnos);
+            shortcount = (CustomFontTextView) view.findViewById(R.id.shortnos);
             mixedcount = (CustomFontTextView) view.findViewById(R.id.mixednos);
             dateofharvest = (CustomFontTextView) view.findViewById(R.id.dateofharvest);
 
@@ -80,14 +86,17 @@ public class FarmNewAdapter extends RecyclerView.Adapter<FarmNewAdapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
         FarmNew farm = moviesList.get(position);
         holder.cropname.setText(farm.getCropname());
+        holder.allqty.setText(farm.getAllqty());
         holder.aqty.setText(farm.getAqty());
         holder.bqty.setText(farm.getBqty());
         holder.cqty.setText(farm.getCqty());
+        holder.allprice.setText("₹" + farm.getAllprice());
         holder.aprice.setText("₹" + farm.getAprice());
         holder.bprice.setText("₹" + farm.getBprice());
         holder.cprice.setText("₹" + farm.getCprice());
         holder.shortcount.setText(farm.getShorttrees());
         holder.mixedcount.setText(farm.getMixedtrees());
+        holder.allgradetxt.setText("All (₹" + farm.getAllcost() + ")");
         holder.agradetxt.setText("A (₹" + farm.getAcost() + ")");
         holder.bgradetxt.setText("B (₹" + farm.getBcost() + ")");
         holder.cgradetxt.setText("C (₹" + farm.getCcost() + ")");

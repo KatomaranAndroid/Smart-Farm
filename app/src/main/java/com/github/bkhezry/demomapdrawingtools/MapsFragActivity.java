@@ -117,7 +117,7 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mapfrg);
-        getSupportActionBar().setTitle("Add plots");
+        getSupportActionBar().setTitle("Plots");
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         currentDrawingType = DrawingOption.DrawingType.POLYGON;
         drawingOption = new DrawingOption(35.744502, 51.368966, 9, Color.argb(60, 0, 0, 255),
@@ -188,10 +188,17 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
                 }
             }
         });
-        FloatingActionButton btnDone = (FloatingActionButton) findViewById(R.id.btnDone);
+        final FloatingActionButton btnDone = (FloatingActionButton) findViewById(R.id.btnDone);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (v.getTag().equals("plus")) {
+                    btnDone.setImageResource(R.drawable.ic_done_black_24dp);
+                    btnDone.setTag("done");
+                } else {
+                    btnDone.setImageResource(R.drawable.ic_add_black_24dp);
+                    btnDone.setTag("plus");
+                }
                 returnCurrentPosition();
             }
         });

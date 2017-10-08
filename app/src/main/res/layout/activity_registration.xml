@@ -35,6 +35,45 @@
                 android:weightSum="2">
 
                 <ImageView
+                    android:id="@+id/aadharimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_center_focus_strong_black_24dp"
+                    android:tint="@color/primary" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/aadharnumer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Aadhar number"
+                        android:inputType="phone"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -56,6 +95,44 @@
                         android:layout_gravity="center"
                         android:backgroundTint="@color/colorAccent"
                         android:hint="Farmer Name"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_assignment_ind_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/fathername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Father name"
                         android:inputType="textCapWords"
                         android:textColorHint="#c6c6c6"
                         android:textSize="@dimen/textsize"
@@ -263,7 +340,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1.75"
                         android:padding="@dimen/paddingimg"
-                        android:src="@drawable/ic_bubble_chart_black_24dp"
+                        android:src="@drawable/ic_blur_circular_black_24dp"
                         android:tint="@color/colortint" />
 
                     <android.support.design.widget.TextInputLayout
@@ -273,61 +350,19 @@
                         android:layout_weight="0.25">
 
                         <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
-                            android:id="@+id/agentname"
+                            android:id="@+id/irrication"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:backgroundTint="@color/colorAccent"
-                            android:hint="Agent name"
+                            android:hint="Last year irrigated?"
                             android:inputType="textCapWords"
                             android:textColorHint="#c6c6c6"
                             android:textSize="@dimen/textsize"
-                            app:font="maven" />
-
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1.75"
-                        android:padding="@dimen/paddingimg"
-                        android:src="@drawable/ic_phone_black_24dp"
-                        android:tint="@color/colortint" />
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.25">
-
-                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
-                            android:id="@+id/agentcontact"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/colorAccent"
-                            android:hint="Agent Contact"
-                            android:inputType="phone"
-                            android:textColorHint="#c6c6c6"
-                            android:textSize="@dimen/textsize"
-                            app:font="maven" />
+                            app:category="@string/selectable"
+                            app:choices="Yes,No"
+                            app:font="maven"
+                            app:tittle="Last year irrigated" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -368,7 +403,142 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:backgroundTint="@color/colorAccent"
-                            android:hint="Total area"
+                            android:hint="Total acres of plantation"
+                            android:inputType="phone"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_edit_location_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/geotag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="Geo tag"
+                            android:inputType="phone"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_edit_location_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="Address"
+                            android:inputType="phone"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_edit_location_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/address1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="Taulk, Town,t District"
                             android:inputType="phone"
                             android:textColorHint="#c6c6c6"
                             android:textSize="@dimen/textsize"
@@ -425,53 +595,6 @@
 
             </LinearLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1.75"
-                        android:padding="@dimen/paddingimg"
-                        android:src="@drawable/ic_edit_location_black_24dp"
-                        android:tint="@color/colortint" />
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.25">
-
-                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
-                            android:id="@+id/geotag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/colorAccent"
-                            android:hint="Geo tag"
-                            android:inputType="phone"
-                            android:textColorHint="#c6c6c6"
-                            android:textSize="@dimen/textsize"
-                            app:font="maven" />
-
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -493,6 +616,47 @@
                         android:src="@drawable/ic_mail_black_24dp"
                         android:tint="@color/colortint" />
 
+                    <com.tasomaniac.widget.EmailAutoCompleteLayout
+                        android:id="@+id/email_auto_complete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:permissionText="@string/permission_text">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autocomplete"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_name"
+                            android:inputType="textEmailAddress"
+                            android:selectAllOnFocus="true" />
+                    </com.tasomaniac.widget.EmailAutoCompleteLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_all_out_black_24dp"
+                        android:tint="@color/colortint" />
+
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -500,13 +664,147 @@
                         android:layout_weight="0.25">
 
                         <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
-                            android:id="@+id/email"
+                            android:id="@+id/ifscnumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:backgroundTint="@color/colorAccent"
-                            android:hint="G mail"
+                            android:hint="IFSC number"
+                            android:inputType="textCapWords"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_account_balance_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/accountnumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="Account number"
                             android:inputType="phone"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_account_balance_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/shgname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="SHG Name"
+                            android:inputType="textCapWords"
+                            android:textColorHint="#c6c6c6"
+                            android:textSize="@dimen/textsize"
+                            app:font="maven" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.75"
+                        android:padding="@dimen/paddingimg"
+                        android:src="@drawable/ic_account_balance_black_24dp"
+                        android:tint="@color/colortint" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.25">
+
+                        <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                            android:id="@+id/fpoName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/colorAccent"
+                            android:hint="FPO Name"
+                            android:inputType="textCapWords"
                             android:textColorHint="#c6c6c6"
                             android:textSize="@dimen/textsize"
                             app:font="maven" />

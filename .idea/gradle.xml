@@ -15,8 +15,10 @@
             <option value="$PROJECT_DIR$/library-calendar" />
             <option value="$PROJECT_DIR$/library-circle" />
             <option value="$PROJECT_DIR$/library-front" />
+            <option value="$PROJECT_DIR$/library-gmail" />
             <option value="$PROJECT_DIR$/library-search" />
             <option value="$PROJECT_DIR$/multisnaprecyclerview" />
+            <option value="$PROJECT_DIR$/qrmodule" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

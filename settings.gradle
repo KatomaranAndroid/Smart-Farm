@@ -1,2 +1,3 @@
-include ':app', ':library',':library-front',':library-search',':gravitysnaphelper',':library-circle',':lib-expand',':library-calendar',':multisnaprecyclerview'
+include ':app', ':library',':library-front',':library-gmail',':library-search',':gravitysnaphelper',':library-circle',':lib-expand',':library-calendar',':multisnaprecyclerview',':qrmodule'
+
 

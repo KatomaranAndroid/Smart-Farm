@@ -16,7 +16,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+        android:tint="@color/accent"
+        android:src="@drawable/ic_add_a_photo_black_24dp" />
 
 
 </LinearLayout>

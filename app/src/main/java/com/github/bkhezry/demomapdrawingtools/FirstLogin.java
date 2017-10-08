@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.github.bkhezry.demomapdrawingtools.dp.DbFarmer;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.github.bkhezry.demomapdrawingtools.utils.Farmer;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,22 +68,20 @@ public class FirstLogin extends AppCompatActivity
                     List<ArrayList<String>> farmerList = dbFarmer.getAllData();
                     boolean trig = false;
                     for (int i = 0; i < farmerList.size(); i++) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(farmerList.get(i).get(1));
-                            if (username.getText().toString().equals(jsonObject.getString("name"))) {
-                                if (password.getText().toString().equals(jsonObject.getString("contact1"))
-                                        || password.getText().toString().equals(jsonObject.getString("contact2"))) {
-                                    trig = true;
-                                    SharedPreferences.Editor editor = sharedpreferences.edit();
-                                    editor.putString(farmerid, farmerList.get(i).get(0));
-                                    editor.commit();
-                                    Intent io = new Intent(FirstLogin.this, MainActivityFarm.class);
-                                    startActivity(io);
-                                    finish();
-                                }
+                        JsonParser parser = new JsonParser();
+                        JsonObject o = parser.parse(farmerList.get(i).get(1)).getAsJsonObject();
+                        Farmer farmer = new Gson().fromJson(o, Farmer.class);
+
+                        if (username.getText().toString().equals(farmer.getName())) {
+                            if (password.getText().toString().equals(farmerList.get(i).get(2))) {
+                                trig = true;
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.putString(farmerid, farmerList.get(i).get(0));
+                                editor.commit();
+                                Intent io = new Intent(FirstLogin.this, MainActivityFarm.class);
+                                startActivity(io);
+                                finish();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
                     }
                     if (!trig) {
@@ -91,7 +90,5 @@ public class FirstLogin extends AppCompatActivity
                 }
             }
         });
-
-
     }
 }

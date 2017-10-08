@@ -56,5 +56,7 @@ dependencies {
     compile files('libs/opencsv-2.3.jar')
     compile project(':multisnaprecyclerview')
     compile 'com.andanhm.quantitypicker:quantitypicker:1.1.0'
-
+    compile project(':qrmodule')
+    compile 'com.github.smart-fun:XmlToJson:1.1.1'
+    compile project(path: ':library-gmail')
 }

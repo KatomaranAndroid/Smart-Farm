@@ -70,13 +70,14 @@
         <activity android:name="com.github.bkhezry.mapdrawingtools.ui.MapsActivity" />
         <activity
             android:name=".MainActivityFarm"
-            android:theme="@style/AppThemecomm" />
+            android:theme="@style/AppThemecomm"
+         />
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/AppThemeProfile" />
         <activity
             android:name=".buy.MainActivityCattle"
-            android:theme="@style/AppThemee" />
+            android:theme="@style/AppThemeD" />
         <activity
             android:name=".FarmerRegistration"
             android:theme="@style/AppThemeD" />

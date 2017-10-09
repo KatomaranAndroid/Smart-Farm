@@ -2,28 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<item-->
-    <!--android:id="@+id/actionSettings"-->
-    <!--android:title="@string/settings"-->
-    <!--app:showAsAction="always"/>-->
-
-
+    <item
+        android:id="@+id/tree"
+        android:icon="@drawable/ic_local_florist_black_24dp"
+        android:title="Tree"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mykart"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        android:title="My Kart"
+        app:showAsAction="always" />
     <item
         android:id="@+id/plot"
-        android:icon="@drawable/ic_layers_black_24dp"
-        android:title="Tree"
+        android:icon="@drawable/ic_edit_location_blackk_24dp"
+        android:title="Plot"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/buy"
-        android:icon="@drawable/ic_shopping_basket_black_24dp"
-        android:title="Tree"
+        android:id="@+id/market"
+        android:icon="@drawable/rupeeindianblack"
+        android:title="Market"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/account"
         android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Tree"
+        android:title="Profile"
         app:showAsAction="always" />
 
 </menu>

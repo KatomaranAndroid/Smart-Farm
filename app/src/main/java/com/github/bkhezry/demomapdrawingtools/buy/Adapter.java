@@ -99,7 +99,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 profileFunction(position);
             }
         });
-        holder.farmerplace.setText(farmer.getAddress1());
+        holder.farmerplace.setText(farmer.getGeotag());
         holder.farmerplace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

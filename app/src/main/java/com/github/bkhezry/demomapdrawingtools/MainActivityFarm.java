@@ -32,6 +32,7 @@ import com.github.bkhezry.demomapdrawingtools.customdialogs.ContactSearchDialogC
 import com.github.bkhezry.demomapdrawingtools.customdialogs.models.ContactModel;
 import com.github.bkhezry.demomapdrawingtools.dp.DbFarmer;
 import com.github.bkhezry.demomapdrawingtools.dp.DbPro;
+import com.github.bkhezry.demomapdrawingtools.trees.TreesActivity;
 import com.github.bkhezry.demomapdrawingtools.utils.FarmNew;
 import com.github.bkhezry.demomapdrawingtools.utils.Farmer;
 import com.google.gson.Gson;
@@ -64,11 +65,6 @@ public class MainActivityFarm extends AppCompatActivity {
     int bPrice = 0;
     int cPrice = 0;
 
-    public static String noOfTrees = "";
-    public static String typeCrop = "";
-    public static String yiled = "";
-    public static String value = "";
-
     DbPro dbpro;
     DbFarmer dbFarmer;
     SharedPreferences sharedpreferences;
@@ -92,6 +88,8 @@ public class MainActivityFarm extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_shopping_cart_black_24dp);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'> My Crop </font>"));
 
         emptylayout = (LinearLayout) findViewById(R.id.emptylayout);
@@ -692,10 +690,11 @@ public class MainActivityFarm extends AppCompatActivity {
                     JsonParser parser = new JsonParser();
                     JsonObject o = parser.parse(dbFarmer.getDataByFarmerid(farmerId).get(1)).getAsJsonObject();
                     Farmer farmer = new Gson().fromJson(o, Farmer.class);
-                    if (dbpro.getCountByFarmerid(farmer.getPincode() + "pro_1") == 0) {
-                        proid = farmer.getPincode() + "pro_1";
+                    String pincode = farmer.getGeotag().toString().substring(farmer.getGeotag().toString().length() - 6, farmer.getGeotag().toString().length());
+                    if (dbpro.getCountByFarmerid(pincode + "pro_1") == 0) {
+                        proid = pincode + "pro_1";
                     } else {
-                        proid = farmer.getPincode() + "pro_" + String.valueOf(dbpro.getAllData().size() + 1);
+                        proid = pincode + "pro_" + String.valueOf(dbpro.getAllData().size() + 1);
                     }
                     FarmNew farm = new FarmNew(farmerId, proid, qtyttext, cropname.getText().toString(),
                             allqty.getText().toString(),
@@ -735,17 +734,12 @@ public class MainActivityFarm extends AppCompatActivity {
     }
 
 
-    public static String getValue() {
-        return typeCrop + "," + noOfTrees + "," + yiled + "," + value;
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_farmer_black, menu);
-//        MenuItem item = menu.findItem(R.id.bank);
-//        item.setVisible(false);
+        MenuItem item = menu.findItem(R.id.mykart);
+        item.setVisible(false);
         return true;
     }
 
@@ -757,24 +751,21 @@ public class MainActivityFarm extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.buy:
-                Intent ioo = new Intent(MainActivityFarm.this, MainActivityCattle.class);
-                startActivityForResult(ioo, 1);
+            case R.id.market:
+                Intent market = new Intent(MainActivityFarm.this, MainActivityCattle.class);
+                startActivityForResult(market, 1);
                 return true;
             case R.id.account:
                 Intent account = new Intent(MainActivityFarm.this, ProfileActivity.class);
                 startActivity(account);
                 return true;
             case R.id.plot:
-                JsonParser parser = new JsonParser();
-                JsonObject o = parser.parse(dbFarmer.getDataByFarmerid(farmerId).get(1)).getAsJsonObject();
-                Farmer farmer = new Gson().fromJson(o, Farmer.class);
-                typeCrop = farmer.getName();
-                noOfTrees = farmer.getCoconuttrees();
-                yiled = farmer.getYield();
-                value = "Unknown";
-                Intent intent = new Intent(MainActivityFarm.this, MapsFragActivity.class);
-                startActivity(intent);
+                Intent plot = new Intent(MainActivityFarm.this, MapsFragActivity.class);
+                startActivity(plot);
+                return true;
+            case R.id.tree:
+                Intent tree = new Intent(MainActivityFarm.this, TreesActivity.class);
+                startActivity(tree);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -788,6 +779,4 @@ public class MainActivityFarm extends AppCompatActivity {
             prepareData();
         }
     }
-
-
 }

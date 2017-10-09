@@ -18,9 +18,6 @@ public class Farmer {
     String irrigated;
     String area;
     String geotag;
-    String address1;
-    String address2;
-    String pincode;
     String gmail;
     String ifscnumber;
     String accountnumber;
@@ -34,7 +31,7 @@ public class Farmer {
         this.farmerid = farmerid;
     }
 
-    public void setData(String farmerid, String image, String aadharnumber, String name, String fathername, String contact1, String contact2, String coconuttrees, String yield, String irrigated, String area, String geotag, String address1, String address2, String pincode, String gmail, String ifscnumber, String accountnumber, String fboname, String shgname) {
+    public void setData(String farmerid, String image, String aadharnumber, String name, String fathername, String contact1, String contact2, String coconuttrees, String yield, String irrigated, String area, String geotag, String gmail, String ifscnumber, String accountnumber, String fboname, String shgname) {
         this.farmerid = farmerid;
         this.image = image;
         this.aadharnumber = aadharnumber;
@@ -47,9 +44,6 @@ public class Farmer {
         this.irrigated = irrigated;
         this.area = area;
         this.geotag = geotag;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.pincode = pincode;
         this.gmail = gmail;
         this.ifscnumber = ifscnumber;
         this.accountnumber = accountnumber;
@@ -159,30 +153,6 @@ public class Farmer {
 
     public void setGeotag(String geotag) {
         this.geotag = geotag;
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getPincode() {
-        return pincode;
-    }
-
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
     }
 
     public String getIfscnumber() {

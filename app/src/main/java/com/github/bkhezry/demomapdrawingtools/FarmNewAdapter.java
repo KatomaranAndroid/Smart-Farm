@@ -96,7 +96,7 @@ public class FarmNewAdapter extends RecyclerView.Adapter<FarmNewAdapter.MyViewHo
         holder.cprice.setText("₹" + farm.getCprice());
         holder.shortcount.setText(farm.getShorttrees());
         holder.mixedcount.setText(farm.getMixedtrees());
-        holder.allgradetxt.setText("All (₹" + farm.getAllcost() + ")");
+        holder.allgradetxt.setText("Mix (₹" + farm.getAllcost() + ")");
         holder.agradetxt.setText("A (₹" + farm.getAcost() + ")");
         holder.bgradetxt.setText("B (₹" + farm.getBcost() + ")");
         holder.cgradetxt.setText("C (₹" + farm.getCcost() + ")");

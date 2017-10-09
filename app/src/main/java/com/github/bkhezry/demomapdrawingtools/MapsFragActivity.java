@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.bkhezry.demomapdrawingtools.buy.MainActivityCattle;
 import com.github.bkhezry.demomapdrawingtools.trees.TreesActivity;
 import com.github.bkhezry.demomapdrawingtools.ui.MainActivity;
 import com.github.bkhezry.extramaputils.builder.ExtraMarkerBuilder;
@@ -118,6 +119,8 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mapfrg);
         getSupportActionBar().setTitle("Plots");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_edit_location_black_24dp);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         currentDrawingType = DrawingOption.DrawingType.POLYGON;
         drawingOption = new DrawingOption(35.744502, 51.368966, 9, Color.argb(60, 0, 0, 255),
@@ -424,7 +427,7 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
         if (currentMarker != null) {
             currentMarker.setPosition(latLng);
         } else {
-            @IdRes int icon = R.drawable.ic_navigation_red_a400_36dp;
+            @IdRes int icon = R.drawable.ic_home_black_24dp;
             BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(getBitmapFromDrawable(MapsFragActivity.this, icon));
             currentMarker = mMap.addMarker(new MarkerOptions()
                     .position(latLng)
@@ -522,9 +525,9 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_tree_black, menu);
-//        MenuItem item = menu.findItem(R.id.bank);
-//        item.setVisible(false);
+        getMenuInflater().inflate(R.menu.main_farmer_white, menu);
+        MenuItem item = menu.findItem(R.id.plot);
+        item.setVisible(false);
         return true;
     }
 
@@ -536,14 +539,25 @@ public class MapsFragActivity extends BaseActivity implements OnMapReadyCallback
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.market:
+                Intent market = new Intent(MapsFragActivity.this, MainActivityCattle.class);
+                startActivityForResult(market, 1);
+                return true;
+            case R.id.account:
+                Intent account = new Intent(MapsFragActivity.this, ProfileActivity.class);
+                startActivity(account);
+                return true;
+            case R.id.mykart:
+                Intent mykart = new Intent(MapsFragActivity.this, MainActivityFarm.class);
+                startActivity(mykart);
+                return true;
             case R.id.tree:
-                Intent ioo = new Intent(MapsFragActivity.this, TreesActivity.class);
-                startActivity(ioo);
+                Intent tree = new Intent(MapsFragActivity.this, TreesActivity.class);
+                startActivity(tree);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     private void resultFunction(final DataModel dataModel) {
 

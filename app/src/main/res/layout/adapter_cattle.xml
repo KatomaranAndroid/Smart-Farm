@@ -96,8 +96,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="All"
-                        android:textSize="30dp"
+                        android:text="MIX"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:font="MavenBold" />
 
@@ -142,7 +142,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="A"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:font="MavenBold" />
 
@@ -187,7 +187,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="B"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:font="MavenBold" />
 
@@ -231,7 +231,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="C"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:font="MavenBold" />
 

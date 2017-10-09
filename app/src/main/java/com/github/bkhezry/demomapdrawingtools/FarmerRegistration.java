@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -52,9 +53,6 @@ public class FarmerRegistration extends AppCompatActivity
     private CustomFontEditText contact2;
     private CustomFontEditText coconuttrees;
     private CustomFontEditText coconutyield;
-    private CustomFontEditText agentname;
-    private CustomFontEditText agentcontact;
-    private CustomFontEditText pincode;
     private CustomFontEditText geotag;
     private AutoCompleteTextView email;
     private CustomFontEditText totalarea;
@@ -63,8 +61,6 @@ public class FarmerRegistration extends AppCompatActivity
     private CustomFontEditText aadharnumber;
     private CustomFontEditText fathername;
     private CustomFontEditText irrigated;
-    private CustomFontEditText address;
-    private CustomFontEditText address1;
     private CustomFontEditText ifscnumber;
     private CustomFontEditText accountnumber;
     private CustomFontEditText shgname;
@@ -76,6 +72,10 @@ public class FarmerRegistration extends AppCompatActivity
     public static final String update = "updateKey";
     String imageUri = "";
     private ImageView aadharimage;
+    CustomFontEditText password;
+    CustomFontEditText confirmpassword;
+    CustomFontEditText otp;
+    private LinearLayout otpLin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,16 +104,16 @@ public class FarmerRegistration extends AppCompatActivity
         irrigated = (CustomFontEditText) findViewById(R.id.irrication);
         totalarea = (CustomFontEditText) findViewById(R.id.totalarea);
         geotag = (CustomFontEditText) findViewById(R.id.geotag);
-        address = (CustomFontEditText) findViewById(R.id.address);
-        address1 = (CustomFontEditText) findViewById(R.id.address1);
-        pincode = (CustomFontEditText) findViewById(R.id.pincode);
         email = (AutoCompleteTextView) findViewById(R.id.autocomplete);
         ifscnumber = (CustomFontEditText) findViewById(R.id.ifscnumber);
         accountnumber = (CustomFontEditText) findViewById(R.id.accountnumber);
         shgname = (CustomFontEditText) findViewById(R.id.shgname);
         fponame = (CustomFontEditText) findViewById(R.id.fpoName);
         submit = (CustomFontTextView) findViewById(R.id.r_submittxt);
-
+        password = (CustomFontEditText) findViewById(R.id.password);
+        confirmpassword = (CustomFontEditText) findViewById(R.id.confirmpassword);
+        otp = (CustomFontEditText) findViewById(R.id.otp);
+        otpLin = (LinearLayout) findViewById(R.id.otplin);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,19 +155,17 @@ public class FarmerRegistration extends AppCompatActivity
                 JsonObject o = parser.parse(data).getAsJsonObject();
                 Farmer farmer = new Gson().fromJson(o, Farmer.class);
                 imageUri = farmer.getImage();
+                otpLin.setVisibility(View.GONE);
                 name.setText(farmer.getName());
                 fathername.setText(farmer.getFathername());
                 aadharnumber.setText(farmer.getAadharnumber());
                 contact1.setText(farmer.getContact1());
-                contact2.setText(farmer.getContact1());
+                contact2.setText(farmer.getContact2());
                 coconuttrees.setText(farmer.getCoconuttrees());
                 coconutyield.setText(farmer.getYield());
                 irrigated.setText(farmer.getIrrigated());
                 totalarea.setText(farmer.getArea());
                 geotag.setText(farmer.getGeotag());
-                address.setText(farmer.getAddress1());
-                address1.setText(farmer.getAddress2());
-                pincode.setText(farmer.getPincode());
                 email.setText(farmer.getGmail());
                 ifscnumber.setText(farmer.getIfscnumber());
                 accountnumber.setText(farmer.getAccountnumber());
@@ -187,22 +185,21 @@ public class FarmerRegistration extends AppCompatActivity
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (name.getText().toString().length() <= 0
-                        || contact1.getText().toString().length() <= 0
+
+                if (!(contact1.getText().toString() != null && contact1.getText().toString().length() == 10)) {
+                    contact1.setError("Enter valid number");
+                } else if (!(contact2.getText().toString() != null && contact2.getText().toString().length() == 10)) {
+                    contact2.setError("Enter valid number");
+                } else if (!password.getText().toString().trim().equals(confirmpassword.getText().toString().trim())) {
+                    Toast.makeText(getApplicationContext(), "Password dosn't match", Toast.LENGTH_SHORT).show();
+                } else if (name.getText().toString().length() <= 0 || fathername.getText().toString().length() <= 0
                         || contact2.getText().toString().length() <= 0
                         || coconuttrees.getText().toString().length() <= 0
                         || coconutyield.getText().toString().length() <= 0
                         || irrigated.getText().toString().length() <= 0
                         || totalarea.getText().toString().length() <= 0
                         || geotag.getText().toString().length() <= 0
-                        || address.getText().toString().length() <= 0
-                        || address1.getText().toString().length() <= 0
-                        || pincode.getText().toString().length() <= 0
                         || email.getText().toString().length() <= 0
-                        || ifscnumber.getText().toString().length() <= 0
-                        || accountnumber.getText().toString().length() <= 0
-                        || shgname.getText().toString().length() <= 0
-                        || fponame.getText().toString().length() <= 0
                         ) {
                     Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
                 } else {
@@ -225,9 +222,6 @@ public class FarmerRegistration extends AppCompatActivity
                             , irrigated.getText().toString()
                             , totalarea.getText().toString()
                             , geotag.getText().toString()
-                            , address.getText().toString()
-                            , address1.getText().toString()
-                            , pincode.getText().toString()
                             , email.getText().toString()
                             , ifscnumber.getText().toString()
                             , accountnumber.getText().toString()
@@ -242,19 +236,25 @@ public class FarmerRegistration extends AppCompatActivity
                         startActivity(io);
                         finish();
                     } else {
-                        if (dbFarmer.getCountByFarmerid(pincode.getText().toString() + "farmer_1") == 0) {
-                            farmeridnew = pincode.getText().toString() + "farmer_1";
+                        if (otp.getText().toString().length() <= 0) {
+                            otp.setError("Please enter valid otp");
                         } else {
-                            farmeridnew = pincode.getText().toString() + "farmer_" + String.valueOf(dbFarmer.getAllData().size() + 1);
+                            String pincode = geotag.getText().toString().substring(geotag.getText().toString().length() - 6, geotag.getText().toString().length());
+                            if (dbFarmer.getCountByFarmerid(pincode + "farmer_1") == 0) {
+                                farmeridnew = pincode + "farmer_1";
+                            } else {
+                                farmeridnew = pincode + "farmer_" + String.valueOf(dbFarmer.getAllData().size() + 1);
+                            }
+                            farmerdata.setId(farmeridnew);
+                            dbFarmer.addData(farmeridnew, new Gson().toJson(farmerdata));
+                            dbFarmer.updatePassByFarmerid(farmeridnew, password.getText().toString());
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(farmerid, farmeridnew);
+                            editor.commit();
+                            Intent io = new Intent(FarmerRegistration.this, MainActivityFarm.class);
+                            startActivity(io);
+                            finish();
                         }
-                        farmerdata.setId(farmeridnew);
-                        dbFarmer.addData(farmeridnew, new Gson().toJson(farmerdata));
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString(farmerid, farmeridnew);
-                        editor.commit();
-                        Intent io = new Intent(FarmerRegistration.this, PasswordActivity.class);
-                        startActivity(io);
-                        finish();
                     }
                 }
             }
@@ -310,21 +310,25 @@ public class FarmerRegistration extends AppCompatActivity
                     jsonObj = xmlToJson.toJson();
                     JSONObject barcodedata = jsonObj.getJSONObject("PrintLetterBarcodeData");
                     Log.d("xxxxxxxxx", barcodedata.toString());
-                    String addresstext = "";
+                    String addresstxt1 = "";
+                    String addresstxt2 = "";
+                    String pincode = "";
                     if (!barcodedata.isNull("street")) {
-                        address.setText(barcodedata.getString("street"));
+                        addresstxt1 = addresstxt1 + barcodedata.getString("street");
                     } else if (!barcodedata.isNull("lm")) {
-                        address.setText(barcodedata.getString("lm"));
+                        addresstxt1 = addresstxt1 + barcodedata.getString("lm");
                     }
 
                     if (!barcodedata.isNull("vtc")) {
-                        addresstext = addresstext + barcodedata.getString("vtc");
+                        addresstxt2 = addresstxt2 + barcodedata.getString("vtc") + ",";
                     }
                     if (!barcodedata.isNull("subdist")) {
-                        addresstext = addresstext + barcodedata.getString("subdist");
+                        addresstxt2 = addresstxt2 + barcodedata.getString("subdist") + ",";
                     }
                     if (!barcodedata.isNull("dist")) {
-                        addresstext = addresstext + barcodedata.getString("dist");
+                        addresstxt2 = addresstxt2 + barcodedata.getString("dist") + ",";
+                        addresstxt2 = addresstxt2 + barcodedata.getString("state") + ",";
+                        addresstxt2 = addresstxt2 + " India";
                     }
                     if (!barcodedata.isNull("uid")) {
                         aadharnumber.setText(String.valueOf(barcodedata.getLong("uid")));
@@ -335,13 +339,10 @@ public class FarmerRegistration extends AppCompatActivity
                     if (!barcodedata.isNull("gname")) {
                         fathername.setText(barcodedata.getString("gname"));
                     }
-
                     if (!barcodedata.isNull("pc")) {
-                        pincode.setText(barcodedata.getString("pc"));
+                        pincode = barcodedata.getString("pc");
                     }
-                    if (addresstext.toString().length() > 0) {
-                        address1.setText(addresstext);
-                    }
+                    geotag.setText("Geo tag:11.34567,72.45676" + "\n" + addresstxt1 + "\n" + addresstxt2 + "\n" + pincode);
                 } catch (Exception e) {
                     Log.e("xxxxxxxxx", e.toString());
                     Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();

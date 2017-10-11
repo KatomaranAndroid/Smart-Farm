@@ -1,0 +1,712 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="left|center"
+        android:orientation="horizontal">
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/itemtittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            android:text="Tree name"
+            android:textAllCaps="false"
+            android:textColor="@color/jaguar"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/itemclose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:src="@drawable/ic_close_black_24dp"
+            android:tint="@color/jaguar" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/treeid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Tree id"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/variety"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Variety"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/waterrequired "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Water required"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/soil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Soil"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/irrigation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Irrigation"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/typeofproduce"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Type of produce &amp; grade"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/yieldpertime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Yield per time "
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/noofharvest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="No of harvests per year"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/totalyield"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Total yield"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/yearofplanting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Year of planting"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/treelength"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Tree length"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/dbh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="DBH"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/timbervolume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Timber volume"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/fertilizer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Fertilizer"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/pesticide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Pesticide"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/insurancedate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Insurance date"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.75"
+                    android:padding="@dimen/paddingimg"
+                    android:src="@drawable/ic_bubble_chart_black_24dp"
+                    android:tint="@color/colortint" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.25">
+
+                    <com.github.bkhezry.demomapdrawingtools.CustomFontEditText
+                        android:id="@+id/insurancecost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:hint="Insurance cost"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#c6c6c6"
+                        android:textSize="@dimen/textsize"
+                        app:font="maven" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+    <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+        android:id="@+id/r_submittxt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        app:font="maven" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

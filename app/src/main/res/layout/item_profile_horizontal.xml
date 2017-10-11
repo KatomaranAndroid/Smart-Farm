@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shgitemrel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linprofile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_toStartOf="@+id/imageView3"
+        android:gravity="left"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="#c0c0c0"
+            app:civ_border_width="1dp" />
+
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/plotname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Name of Relation"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:font="MavenBold" />
+
+        <com.github.bkhezry.demomapdrawingtools.CustomFontTextView
+            android:id="@+id/areaofplot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Name of Person"
+            android:textColor="#f1efef"
+            android:textSize="12dp"
+            app:font="maven" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
